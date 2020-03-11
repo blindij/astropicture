@@ -73,7 +73,7 @@ const extension: JupyterFrontEndPlugin<void> = {
           summary.innerText += ` (Copyright ${data.copyright})`;
         }
       } else {
-        summary.innterText = 'Random APOD fetched was not an image.';
+        summary.innerText = 'Random APOD fetched was not an image.';
       }
     }
     

@@ -65,7 +65,7 @@ const extension: JupyterFrontEndPlugin<void> = {
       const data = await response.json() as APODResponse;
 
       if (data.media_type === 'image'){
-        // Populate the image
+       // Populate the image
         img.src = data.url;
         img.title = data.title;
         summary.innerText = data.title;
@@ -73,8 +73,10 @@ const extension: JupyterFrontEndPlugin<void> = {
           summary.innerText += ` (Copyright ${data.copyright})`;
         }
       } else {
-        console.log('Random APOD was not a picture.')
+        summary.innterText = 'Random APOD fetched was not an image.';
       }
+    }
+    
     // Add an application command
     const command: string='apod:open';
     app.commands.addCommand(command, {
@@ -91,8 +93,7 @@ const extension: JupyterFrontEndPlugin<void> = {
 
     // Add the command to the palette
     palette.addItem({command, category: 'Tutorial'});
-    // console.log('ICommandPalette:', palette);
   }
 };
 
-//export default extension;
+export default extension;

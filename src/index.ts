@@ -2,15 +2,21 @@ import {
   JupyterFrontEnd, JupyterFrontEndPlugin
 } from '@jupyterlab/application';
 
+import {
+	ICommandPalette
+	} from '@jupyterlab/apputils';
+
 
 /**
- * Initialization data for the myextension extension.
+ * Initialization data for the astropicture extension.
  */
 const extension: JupyterFrontEndPlugin<void> = {
-  id: 'myextension',
+  id: 'astropicture',
   autoStart: true,
-  activate: (app: JupyterFrontEnd) => {
-    console.log('JupyterLab extension myextension is activated!');
+  requires: [ICommandPalette],
+  activate: (app: JupyterFrontEnd, palette: ICommandPalette) => {
+    console.log('JupyterLab extension astropicture is activated!');
+    console.log('ICommandPalette:', palette);
   }
 };
 
